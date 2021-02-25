@@ -5,7 +5,7 @@ produse. Aplicatia pune la dispozitia fiecarui agent al firmei un terminal prin 
 • agentul vizualizeaza lista tuturor produselor vândute de firma, împreuna cu preturile aferente
 și cantitatile existente pe stoc.
 
--agentul vizualizeaza lista tuturor comenzilor efectuate de el, comanda poate avea :produs, cantitate,nume client,
+-agentul se logeaza, vizualizeaza lista tuturor comenzilor efectuate de el , comanda poate avea :produs, cantitate,nume client,
 data punere comanda, data livrare, status
 
 • agentul poate comanda o cantitate dintr-un produs. După orice comanda valida, toti agentii
