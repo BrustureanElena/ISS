@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name = "firma.AgentVanzari"
+           table="AgentVanzari">
+        <id name = "id" column = "id">
+            <generator class="increment"/>
+        </id>
+        <property name="nume" column = "nume"/>
+        <property name="username" column="username"/>
+        <property name="parola" column="parola"/>
+
+    </class>
+
+</hibernate-mapping>

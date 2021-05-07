@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="504.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="9.0" layoutY="77.0" prefHeight="279.0" prefWidth="416.0">
+        <columns>
+            <TableColumn prefWidth="75.0" text="Client" />
+            <TableColumn prefWidth="130.0" text="Data punere comanda" />
+            <TableColumn prefWidth="132.0" text="Data livrare comanda" />
+            <TableColumn prefWidth="85.0" text="Status" />
+        </columns>
+      </TableView>
+      <Label layoutX="191.0" layoutY="41.0" text="COMENZI" />
+      <TableView layoutX="462.0" layoutY="77.0" prefHeight="272.0" prefWidth="200.0">
+        <columns>
+          <TableColumn prefWidth="92.0" text="Produs" />
+          <TableColumn prefWidth="107.0" text="Cantitate" />
+        </columns>
+      </TableView>
+      <TextField layoutX="95.0" layoutY="411.0" />
+      <TextField layoutX="95.0" layoutY="377.0" />
+      <TextField layoutX="95.0" layoutY="453.0" />
+      <Label layoutX="38.0" layoutY="457.0" text="Status" />
+      <Label layoutX="30.0" layoutY="415.0" text="Cantitate" />
+      <Label layoutX="41.0" layoutY="381.0" text="Produs" />
+      <Button layoutX="582.0" layoutY="445.0" mnemonicParsing="false" text="Modifica comanda" />
+      <Button layoutX="580.0" layoutY="403.0" mnemonicParsing="false" text="Anuleaza comanda" />
+   </children>
+</AnchorPane>

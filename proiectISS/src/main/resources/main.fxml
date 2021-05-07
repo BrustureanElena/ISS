@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="77.0" layoutY="57.0" prefHeight="317.0" prefWidth="334.0">
+        <columns>
+          <TableColumn prefWidth="100.0" text="Denumire" />
+          <TableColumn prefWidth="122.0" text="Pret" />
+            <TableColumn prefWidth="111.0" text="Stoc" />
+        </columns>
+      </TableView>
+      <TextField layoutX="495.0" layoutY="124.0" />
+      <TextField layoutX="495.0" layoutY="183.0" />
+      <Label layoutX="432.0" layoutY="128.0" text="Cantitate" />
+      <Label layoutX="438.0" layoutY="187.0" text="Client" />
+      <Label layoutX="501.0" layoutY="57.0" prefHeight="17.0" prefWidth="133.0" text="ADAUGA COMANDA:" />
+      <Button layoutX="495.0" layoutY="273.0" mnemonicParsing="false" text="Plaseaza comanda" />
+      <Label layoutX="205.0" layoutY="23.0" prefHeight="25.0" prefWidth="80.0" text="PRODUSE" />
+      <Button layoutX="535.0" layoutY="402.0" mnemonicParsing="false" text="Vizualizeaza comenzi" />
+   </children>
+</AnchorPane>
