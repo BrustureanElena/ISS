@@ -18,6 +18,7 @@
 
         <mapping resource="firma/AgentVanzari.hbm.xml"/>
         <mapping resource="firma/Produs.hbm.xml"/>
+        <mapping resource="firma/Comanda.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

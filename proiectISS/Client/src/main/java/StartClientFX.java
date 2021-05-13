@@ -1,4 +1,5 @@
 import controllers.AgentController;
+import controllers.ComenziController;
 import controllers.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -36,11 +37,18 @@ public class StartClientFX extends Application {
             agentController.setContext(server);
 
 
-            ctrl.setControllerAgent(agentController);
+            FXMLLoader cLoader = new FXMLLoader(getClass().getResource("/comenzi.fxml"));
+            Parent cRoot = cLoader.load();
+            ComenziController comenziController=cLoader.getController();
+            comenziController.setContext(server);
 
+
+
+            ctrl.setControllerAgent(agentController);
+            agentController.setComenziController(comenziController);
 
             ctrl.setParents(bRoot);
-
+            agentController.setParents(cRoot);
             primaryStage.setTitle("Firma");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();

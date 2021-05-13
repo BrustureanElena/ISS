@@ -1,6 +1,8 @@
 package persistance.jdbc;
 
 import firma.AgentVanzari;
+import firma.Comanda;
+import firma.Produs;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -41,15 +43,19 @@ public class AgentHibernateRepository implements AgentRepository {
 
     }
 
+
     @Override
-    public void delete(Integer integer) {
+    public void deleteVoid(Integer id) {
 
     }
 
+
     @Override
-    public void update(AgentVanzari elem) {
+    public void updateC(Produs elem) {
 
     }
+
+
 
     @Override
     public AgentVanzari findById(Integer integer) {

@@ -11,69 +11,103 @@
     <collation id="4" parent="1" name="NOCASE"/>
     <collation id="5" parent="1" name="RTRIM"/>
     <table id="6" parent="2" name="AgentVanzari"/>
-    <table id="7" parent="2" name="Produs"/>
-    <table id="8" parent="2" name="sqlite_master">
+    <table id="7" parent="2" name="Comanda"/>
+    <table id="8" parent="2" name="Produs"/>
+    <table id="9" parent="2" name="sqlite_master">
       <System>1</System>
     </table>
-    <column id="9" parent="6" name="id">
+    <column id="10" parent="6" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="10" parent="6" name="nume">
+    <column id="11" parent="6" name="nume">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="11" parent="6" name="username">
+    <column id="12" parent="6" name="username">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="12" parent="6" name="parola">
+    <column id="13" parent="6" name="parola">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <key id="13" parent="6">
+    <key id="14" parent="6">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="14" parent="7" name="id">
+    <column id="15" parent="7" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="7" name="denumire">
+    <column id="16" parent="7" name="numeClient">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="16" parent="7" name="pret">
+    <column id="17" parent="7" name="dataPunereComanda">
+      <Position>3</Position>
+      <DataType>date|0s</DataType>
+    </column>
+    <column id="18" parent="7" name="status">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="19" parent="7" name="idProdus">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="20" parent="7" name="cantitateProdus">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <column id="21" parent="7" name="idAbonat">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+    </column>
+    <key id="22" parent="7">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="23" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="8" name="denumire">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="25" parent="8" name="pret">
       <Position>3</Position>
       <DataType>float(19)|0s</DataType>
     </column>
-    <column id="17" parent="7" name="stoc">
+    <column id="26" parent="8" name="stoc">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
     </column>
-    <key id="18" parent="7">
+    <key id="27" parent="8">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="19" parent="8" name="type">
+    <column id="28" parent="9" name="type">
       <Position>1</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="20" parent="8" name="name">
+    <column id="29" parent="9" name="name">
       <Position>2</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="21" parent="8" name="tbl_name">
+    <column id="30" parent="9" name="tbl_name">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="22" parent="8" name="rootpage">
+    <column id="31" parent="9" name="rootpage">
       <Position>4</Position>
       <DataType>int|0s</DataType>
     </column>
-    <column id="23" parent="8" name="sql">
+    <column id="32" parent="9" name="sql">
       <Position>5</Position>
       <DataType>text|0s</DataType>
     </column>

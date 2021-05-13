@@ -12,11 +12,11 @@ public class Produs  implements Entity<Integer>, Serializable {
     public Produs() {
 
     }
-    public Produs(String denumire, Float pret, Integer stoc, int id) {
+    public Produs(String denumire, Float pret, Integer stoc) {
         this.denumire = denumire;
         this.pret = pret;
         this.stoc = stoc;
-        this.id = id;
+
     }
 
     public String getDenumire() {

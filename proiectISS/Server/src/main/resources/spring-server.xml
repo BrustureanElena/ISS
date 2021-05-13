@@ -8,11 +8,14 @@
 
     <bean id="agentiHibernate" class="persistance.jdbc.AgentHibernateRepository"/>
     <bean id="produseHibernate" class="persistance.jdbc.ProdusHibernateRepository"/>
+    <bean id="comenziHibernate" class="persistance.jdbc.ComandaHibernateRepository"/>
 
 
     <bean id="service" class="server.ServiceImplementation">
         <constructor-arg ref="agentiHibernate" />
         <constructor-arg ref="produseHibernate" />
+        <constructor-arg ref="comenziHibernate" />
+
 
     </bean>
 
