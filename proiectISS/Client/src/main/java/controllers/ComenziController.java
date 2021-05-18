@@ -84,4 +84,9 @@ public class ComenziController  extends UnicastRemoteObject implements Serializa
             idTabelComenzi.refresh();
         });
     }
+
+    @Override
+    public void comandaDeleted(Comanda comanda) {
+
+    }
 }

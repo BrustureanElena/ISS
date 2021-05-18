@@ -14,9 +14,10 @@ public interface IServices {
     public AgentVanzari agentConectat(String username, String parola);
 
     public List<Comanda>  getComenziRealizateDeAgent(int idAbonat);
-    public Comanda deleteComanda( int idProdus) throws Exception;
+
     public void modificaProdus(Integer id,int stoc,String denumire,Float pret) throws Exception;
     public void addComanda(String numeClient, Date dataPunereComanda, String status, int idProdus, int cantitateProdus, int idAbonat) throws Exception;
     public void stergeComanda (Integer id);
-    Comanda findComanda(Comanda byId);
+    public void modificaComanda(int idComanda, String status, int idProdus, int cantitateProdus) throws Exception;
+
 }

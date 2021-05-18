@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import persistance.ComandaRepository;
 
+import java.util.Date;
 import java.util.List;
 
 public class ComandaHibernateRepository implements ComandaRepository {
@@ -154,5 +155,40 @@ public class ComandaHibernateRepository implements ComandaRepository {
             }
         }
         return result;
+    }
+
+    @Override
+    public void updateComanda(Comanda elem) {
+        try (Session session = sessionFactory.openSession()) {
+            Transaction tx = null;
+            try {
+                tx = session.beginTransaction();
+
+                Comanda pUpdated = session.createQuery("from Comanda where id = ?", Comanda.class)
+                        .setParameter(0, elem.getId())
+                        .setMaxResults(1)
+                        .uniqueResult();
+
+                System.out.println("Inainte de modificare " + pUpdated);
+
+                pUpdated.setNumeClient(elem.getNumeClient());
+                pUpdated.setDataPunereComanda(elem.getDataPunereComanda());
+                pUpdated.setStatus(elem.getStatus());
+                pUpdated.setIdProdus(elem.getIdProdus());
+                pUpdated.setCantitateProdus(elem.getCantitateProdus());
+                pUpdated.setIdAgent(elem.getIdAgent());
+
+
+
+
+                session.update(pUpdated);
+
+                tx.commit();
+            } catch (RuntimeException ex) {
+                if (tx != null)
+                    tx.rollback();
+            }
+
+        }
     }
 }

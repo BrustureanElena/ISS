@@ -12,4 +12,6 @@ public interface IObserver extends Remote {
 
 
     void comandaUpdated()throws RemoteException;
+
+    void comandaDeleted(Comanda comanda)throws RemoteException;
 }

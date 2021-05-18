@@ -70,10 +70,6 @@ public class ServiceImplementation implements IServices {
         return comandaRepository.getComenziRealizateDeAgent(idAgent);
     }
 
-    @Override
-    public Comanda deleteComanda(int idProdus) throws Exception {
-        return null;
-    }
 
     @Override
     public void addComanda(String numeClient, Date dataPunereComanda, String status, int idProdus, int cantitateProdus, int idAbonat) throws Exception {
@@ -86,13 +82,38 @@ public class ServiceImplementation implements IServices {
 
     @Override
     public void stergeComanda(Integer id) {
+        notifyComandaDeleted(comandaRepository.findById(id));
         comandaRepository.deleteVoid(id);
-        notifyComandaUpdated();
+
+       // notifyComandaUpdated();
     }
 
     @Override
-    public Comanda findComanda(Comanda byId) {
-        return comandaRepository.findById(byId.getId());
+    public void modificaComanda(int idComanda, String status, int idProdus, int cantitateProdus) throws Exception {
+
+        Comanda comandaNoua=comandaRepository.findById(idComanda);
+        comandaNoua.setStatus(status);
+        comandaNoua.setCantitateProdus(cantitateProdus);
+        comandaNoua.setIdProdus(idProdus);
+        comandaRepository.updateComanda(comandaNoua);
+
+
+        notifyComandaUpdated();
+    }
+
+    private void notifyComandaDeleted(Comanda comanda) {
+        ExecutorService executor= Executors.newFixedThreadPool(defaultThreadsNo);
+        for(var o: agentiLogati.entrySet()) {
+            executor.execute(() -> {
+                try {
+                    o.getValue().comandaDeleted(comanda);
+                } catch ( RemoteException e) {
+                    System.err.println("Error notifying bibliotecar adaugare carte " + e);
+                }
+            });
+        }
+
+        executor.shutdown();
     }
 
 
@@ -114,8 +135,8 @@ public class ServiceImplementation implements IServices {
             executor.execute(() -> {
                 try {
                     o.getValue().comandaAdded(comanda);
-                } catch ( RemoteException | MyException e) {
-                    System.err.println("Error notifying bibliotecar adaugare carte " + e);
+                } catch (RemoteException | MyException e) {
+                    e.printStackTrace();
                 }
             });
         }
