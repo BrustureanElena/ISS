@@ -7,5 +7,22 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:C:\Users\User\Desktop\ISS\proiectISS\agenti.db</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="agenti" uuid="140320c4-a365-48be-ae12-2ccb1b372a31">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\User\Desktop\ISS\ISSGIT\ISS\proiectISS\agenti.db</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.34.0/sqlite-jdbc-3.34.0.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+    <data-source source="LOCAL" name="agenti2.db" uuid="53a8bd0f-debf-4d0f-b1f7-0487cebfa9e5">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\User\Desktop\ISS\ISSGIT\agenti2.db</jdbc-url>
+    </data-source>
   </component>
 </project>

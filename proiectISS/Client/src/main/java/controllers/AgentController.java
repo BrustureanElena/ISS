@@ -25,7 +25,7 @@ import java.rmi.server.UnicastRemoteObject;
 import java.util.Date;
 
 public class AgentController  extends UnicastRemoteObject implements IObserver, Serializable {
-    private ComenziController comenziController;
+ //   private ComenziController comenziController;
     private IServices service;
     private Parent parentComenzi;
     private AgentVanzari agentConectat;
@@ -90,13 +90,19 @@ public class AgentController  extends UnicastRemoteObject implements IObserver, 
         Produs produsSelectat = idTabelProduse.getSelectionModel().getSelectedItem();
         String numeClient = textFieldClient.getText();
         int cantitate = Integer.parseInt(textFieldCantitate.getText());
+
+
         if (produsSelectat != null) {
             try {
-                service.addComanda(numeClient, new Date(), "nelivrata", produsSelectat.getId(), cantitate, agentConectat.getId());
-                MessageBox.showMessage(null, Alert.AlertType.INFORMATION, "Yeey!", "Comanda plsata cu succes!");
-                textFieldCantitate.setText("");
-                textFieldClient.setText("");
+                if(cantitate> produsSelectat.getStoc())
+                    MessageBox.showErrorMessage(null, "Cantitate insuficienta in stoc! ");
+                else {
 
+                    service.addComanda(numeClient, new Date(), "nelivrata", produsSelectat.getId(), cantitate, agentConectat.getId());
+                    MessageBox.showMessage(null, Alert.AlertType.INFORMATION, "Yeey!", "Comanda plasata cu succes!");
+                    textFieldCantitate.setText("");
+                    textFieldClient.setText("");
+                }
 
             } catch (Exception e) {
                 MessageBox.showErrorMessage(null, e.getMessage());
@@ -128,8 +134,7 @@ public class AgentController  extends UnicastRemoteObject implements IObserver, 
 
             modelProduse.set(index, produs);
 
-            modelProduse.setAll(service.getToateProduseleVandute());
-            modelComenzi.setAll(service.getComenziRealizateDeAgent(agentConectat.getId()));
+            initModel();
             tabelComenzi.refresh();
             idTabelProduse.refresh();
 
@@ -138,7 +143,7 @@ public class AgentController  extends UnicastRemoteObject implements IObserver, 
 
 
     @Override
-    public void comandaUpdated() {
+    public void comandaUpdated() throws RemoteException{
         Platform.runLater(() -> {
             modelProduse.setAll(service.getToateProduseleVandute());
             idTabelProduse.refresh();
@@ -149,7 +154,7 @@ public class AgentController  extends UnicastRemoteObject implements IObserver, 
     }
 
     @Override
-    public void comandaDeleted(Comanda comanda) {
+    public void comandaDeleted(Comanda comanda) throws RemoteException{
         Platform.runLater(() -> {
             Produs produs = modelProduse.stream()
                     .filter(x -> x.getId().equals(comanda.getIdProdus()))
@@ -179,9 +184,9 @@ public class AgentController  extends UnicastRemoteObject implements IObserver, 
 
     }
 
-    public void setComenziController(ComenziController comenziController) {
-        this.comenziController = comenziController;
-    }
+//    public void setComenziController(ComenziController comenziController) {
+//        this.comenziController = comenziController;
+//    }
 
     public void setParents(Parent parentAgent) {
 
@@ -198,7 +203,7 @@ public class AgentController  extends UnicastRemoteObject implements IObserver, 
 
 
             //   stage.setTitle("Bibliotecar: " + bibliotecar.getUsername());
-            comenziController.setAgentConectat(agentConectat);
+            //comenziController.setAgentConectat(agentConectat);
             stage.show();
 
             ((Node) (actionEvent.getSource())).getScene().getWindow().hide();

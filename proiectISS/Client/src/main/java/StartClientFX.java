@@ -1,4 +1,6 @@
 import controllers.AgentController;
+
+
 import controllers.ComenziController;
 import controllers.LoginController;
 import javafx.application.Application;
@@ -45,10 +47,10 @@ public class StartClientFX extends Application {
 
 
             ctrl.setControllerAgent(agentController);
-            agentController.setComenziController(comenziController);
+         //   agentController.setComenziController(comenziController);
 
             ctrl.setParents(bRoot);
-            agentController.setParents(cRoot);
+           /// agentController.setParents(cRoot);
             primaryStage.setTitle("Firma");
             primaryStage.setScene(new Scene(root));
             primaryStage.show();
